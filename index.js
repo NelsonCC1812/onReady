@@ -34,7 +34,7 @@ const getAll = data => {
 
 // If we look out for both the performance get increased
 const getCheapAndExpensive = (data) => {
-    data.sort((a, b) => b - a)
+    data.sort((a, b) => b.price - a.price)
 
     return {
         expensive: data[0].brand + ' ' + data[0].model,
@@ -67,7 +67,7 @@ const getConcretes = (data, letter) => {
 
 const getBiggerToLower = data => {
     const out = data.sort((a, b) => b.price - a.price).reduce((acc, sum) => acc + (`${sum.brand} ${sum.model}\n`), '')
-    return out.slice(0, out.length - 1)
+    return 'Vehículos ordenados por precio de mayor a menor:\n' + out.slice(0, out.length - 1)
 }
 
 // Main function
